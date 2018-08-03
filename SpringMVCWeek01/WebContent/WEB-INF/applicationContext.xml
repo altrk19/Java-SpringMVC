@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+ ">
+
+<!-- bean’leri tek tek tanimlamak yerine <context:component-scan base-package=”….” /> tag’ini kullanabiliriz.
+Auto-Scanning ozelligi aktif hale gelecektir.Boylelikle @Controller @Service gibi annotation’li siniflar aranip bulunacaktir. 
+Bununla birlikte @Autowired annotation’i kullandigimizda Inject islemi gerceklesecektir. -->
+	<context:component-scan base-package="controller,service" />
+
+	<!-- controller istegi karsıladı şimdi view resolver'a view adı verecegiz bize view dönecek -->
+
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view.pages/"/>                                    <!-- controllerdan view adı dönerken view'in bulundugu yeri dizin seklinde yazmak yerine prefix suffix kullanılır -->
+		<property name="suffix" value=".jsp"/>
+	</bean>
+
+</beans>
