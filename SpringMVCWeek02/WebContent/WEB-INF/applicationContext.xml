@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context.xsd 
+     http://www.springframework.org/schema/mvc 
+     http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+     
+     ">
+
+	<!-- handlerMapping yapmak için birçok yöntem var.Bunlardan ilki BeanNameUrlHandlerMapping -->
+	<!--  
+	<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+	<bean name="/page1" class="_01.controller.Page1Controller"/>  // name kısmında url veriyoruz
+	<bean name="/page2" class="_01.controller.Page2Controller"/>
+	<bean name="/page3" class="_01.controller.Page3Controller"/>
+	-->
+	
+	
+	
+	
+	<!-- handlerMapping yapmak için ikinci yöntem SimpleUrlHandlerMapping -->
+	<!--  
+	<bean name="page1Controller" class="_01.controller.Page1Controller"/> 
+	<bean name="page2Controller" class="_01.controller.Page2Controller"/>
+	<bean name="page3Controller" class="_01.controller.Page3Controller"/>
+
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/page1">page1Controller</prop>
+				<prop key="/page2">page2Controller</prop>
+				<prop key="/page3">page3Controller</prop>
+				<prop key="/page3/alibey">page3Controller</prop>
+			</props>
+		</property>
+	</bean>
+	-->
+	
+	<!-- annotation'ı kullanabilmek için yukardakileri yorum satırı haline getirmemiz gerekir. -->
+	<context:component-scan base-package="_01.controller" />  						              <!-- @Controller annotation'unu etkinleştirir. -->
+	
+	
+		<!-- matrix variable varsayilan olarak kapalidir, aktif hale getirmek icin -->
+	<mvc:annotation-driven enable-matrix-variables="true"/>
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view.pages/"/>                                    <!-- controllerdan view adı dönerken view'in bulundugu yeri dizin seklinde yazmak yerine prefix suffix kullanılır -->
+		<property name="suffix" value=".jsp"/>
+	</bean>
+
+</beans> 
