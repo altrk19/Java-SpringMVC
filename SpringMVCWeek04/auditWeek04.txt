@@ -1,0 +1,5 @@
+2018-08-11 11:51:33 auditLogger : preHandle : GET request
+2018-08-11 11:51:33 auditLogger : postHandle : GET request
+2018-08-11 11:51:52 auditLogger : preHandle : POST request
+2018-08-11 11:51:53 auditLogger : postHandle : POST request
+2018-08-11 11:51:53 auditLogger : A New product[sadsa] Added by 0:0:0:0:0:0:0:1 on 11/08/2018 at 11:51:53
