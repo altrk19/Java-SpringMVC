@@ -1,0 +1,9 @@
+//sadece spring-webmvc ve jstl dependency leri eklendi
+
+//web.xml içerisinde  <param-value>/WEB-INF/_02.exception.handling.annotationBased.xml</param-value>      yazýldý
+
+@ExceptionHandler annotation yardimi ile exception handling yapacak metotlarimizi tanimlayabiliriz.
+Controller tarafindan karsilanan bir istek sonrasi exception firlatildigi durumda bu metotlar tarafindan surec devam ettirilecektir.
+
+Simdi de Global Exception Handling icin bir sinif tanimlayalim , burada @Controller yerine @ControllerAdvice annotation’ini kullanacagiz. Yine ilgili exceptionlari tanimlamak icin @ExceptionHandler annotation’ini kullaniyoruz.
+Boylece tum proje kapsaminda ilgili exceptionlar firlatildiginda bu metotlar tarafindan handle edilecektir.
